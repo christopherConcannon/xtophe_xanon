@@ -6,13 +6,15 @@
 A portfolio website for the photographer and imagist Xtophe Xanon in the brutalist veign.
 
 ##### Homescreen
-![Homescreen Screenshot](./assets/images/screenshot.png)
-##### View
-![View Screenshot](./assets/images/screenshot2.png)
-##### View
-![View Screenshot](./assets/images/screenshot3.png)
+![Homescreen Screenshot](./img/screenshot.png)
+##### Bistrot Page View
+![Bistrot Page View Screenshot](./img/screenshot2.png)
+##### Quixote Page View
+![Quixote Page View Screenshot](./img/screenshot3.png)
+##### Contact Page View
+![Contact Page View Screenshot](./img/screenshot4.png)
 
-Visit site [here](https://christopher-concannon.herokuapp.com/)
+Visit site [here](https://christopherconcannon.github.io/xtophe_xanon/)
 
 ## Table of Contents
   * [Installation](#installation)
