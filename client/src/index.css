@@ -170,15 +170,6 @@ h2 {
 	transition: opacity ease 200ms;
 }
 
-/* make sure showcase displays on large screen upon resizing after mobile menu has been toggled */
-@media screen and (min-width: 768px) {
-.showcase {
-  display: block !important; 
-} }
-
-
-
-
 /* CREDITS */
 #credits {
   padding: 3rem;
@@ -204,7 +195,7 @@ h2 {
 
 /* SHOWCASE */
 
-.Bistrot.showcase img {
+.showcase img {
   margin-bottom:  4rem;
 }
 
@@ -535,3 +526,9 @@ h2 {
   font-size: 0.8rem;
 }
 }
+
+/* make sure showcase displays on large screen upon resizing after mobile menu has been toggled */
+@media screen and (min-width: 768px) {
+  .showcase {
+    display: block !important; 
+  } }

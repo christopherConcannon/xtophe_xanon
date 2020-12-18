@@ -17,34 +17,34 @@ const Home = () => {
 						</Link>
 					</div>
 					<div className='grid-item'>
-						<a href='quixote.html'>
+						<Link to='/quixote'>
 							<img src='images/quixote-home.jpg' className='rsp-image' alt='quixote' />
 							<div className='grid-item-overlay'>
 								<div className='grid-item-text'>
 									<h2>Quixote</h2>
 								</div>
 							</div>
-						</a>
+						</Link>
 					</div>
 					<div className='grid-item'>
-						<a href='myco.html'>
+						<Link to='/myco'>
 							<img src='images/myco-1-home.jpg' className='rsp-image' alt='myco' />
 							<div className='grid-item-overlay'>
 								<div className='grid-item-text'>
 									<h2>Myco</h2>
 								</div>
 							</div>
-						</a>
+						</Link>
 					</div>
 					<div className='grid-item'>
-						<a href='eclectica.html'>
+						<Link to='/eclectica'>
 							<img src='images/walrus-home.jpg' className='rsp-image' alt='walrus' />
 							<div className='grid-item-overlay'>
 								<div className='grid-item-text'>
 									<h2>Eclectica</h2>
 								</div>
 							</div>
-						</a>
+						</Link>
 					</div>
 				</div>
 			</div>
