@@ -1,8 +1,10 @@
 const path = require('path');
 const express = require('express')
 const cors = require('cors')
-require('dotenv').config()
+require('dotenv').config({path: '../.env'})
 // const mailerRoute = require('./routes/mailerRoute')
+
+
 
 const PORT = process.env.PORT || 3001;
 

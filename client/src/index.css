@@ -1,13 +1,535 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+
+/* box sizing reset */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: 'Major Mono Display', monospace;
+  font-weight: 500;
+  /* background-color:#000;
+  color: #fff; */
+ }
+
+.container {
+  width: 95%;
+  max-width: 1425px;
+  margin: 0 auto;
+}
+
+a, 
+a:visited{
+  color: #000;
+  text-decoration: none;
+}
+
+h1, h2, h3 {
+  font-family: 'Major Mono Display', monospace;
+}
+
+h1 {
+  padding: 2.5rem;
+  font-size: 2.5rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 2.2rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+
+
+/* NAVBAR */
+#navbar {
+  height: 70px;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 0 2.5rem;
+}
+
+.logo {
+  /* font-family: 'Archivo Black', sans-serif; */
+  /* font-family: 'Major Mono Display', monospace; */
+  line-height: 1.4em;
+  font-size: 2rem; 
+  font-weight: 400;
+}
+
+
+#navbar > ul {
+  display: flex;
+  list-style: none;
+} 
+
+#navbar ul li {
+  padding-left: 1rem;
+} 
+
+#navbar ul li a {
+  /* color: #fff; */
+  color: #000;
+  padding: 1.2rem 0;
+  margin: 0 0.25rem;
+}
+
+#navbar ul li a:hover {
+  opacity: 0.7;
+}
+
+/* Hide .overlay-wrap */
+.overlay-wrap {
+  display: none;
+}
+
+.current {
+  background-repeat: repeat-x;
+  background-image: linear-gradient(to right,currentColor 100%,currentColor 0);
+  background-size: 1px 1px;
+  background-position: 0 calc(100% - 0.8em);
+}
+
+
+
+/* HOMEPAGE SHOWCASE */
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+
+/* Homepage grid-items */
+.grid-item {
+  color: #fff;
+  position: relative;
+  margin: 2.5rem;
+  width: calc(50% - 5rem);
+}
+
+.rsp-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.grid-item-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  /* opacity: 0; */
+  transition: .5s ease;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+
+.grid-item .grid-item-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+
+.grid-item .grid-item-text h2 {
+	color: #fff;
+	/* font-family: Archivo Black; */
+	font-weight: 500;
+	line-height: 1.4em;
+	font-size: 2.2rem;
+
+}
+.grid-item:hover .grid-item-overlay,
+.grid-item:hover .grid-item-text
+ {
+	opacity: 0;
+	transition: opacity ease 200ms;
+}
+
+/* make sure showcase displays on large screen upon resizing after mobile menu has been toggled */
+@media screen and (min-width: 768px) {
+#showcase {
+  display: block !important; 
+} }
+
+
+
+
+/* CREDITS */
+#credits {
+  padding: 3rem;
+  text-align: center;
+  line-height: 2.1;
+  font-size: .8rem;
+}
+
+
+#credits a {
+  /* skinny underline */
+  background-repeat: repeat-x;
+  background-image: linear-gradient(to right,currentColor 100%,currentColor 0);
+  background-size: 1px 1px;
+  background-position: 0 100%; 
+}
+
+#credits a:hover {
+  opacity: 0.7;
+}
+
+/* INNER WORK PAGES */
+
+/* SHOWCASE */
+
+.work #showcase img {
+  margin-bottom:  4rem;
+}
+
+/* override AOS animation style */
+[data-aos=fade-up]{transform:translate3d(0,50px,0)}
+
+/* DESCRIPTION AREA */
+.description {
+  padding: 2rem 2rem  6rem 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* PAGINATION */
+.work .pagination {
+  display: flex;
+  justify-content: space-between;
+}
+
+#bistrot.work .pagination {
+  justify-content: flex-end;
+}
+
+#eclectica.work .pagination {
+  justify-content: flex-start;
+}
+
+.work .pagination h2 {
+  display: inline-block;
+}
+
+.work .pagination .caret-right-icon {
+  margin-left: 1rem;
+  /* color: #fff; */
+}
+
+.work .pagination .caret-left-icon {
+  margin-right: 1rem;
+  /* color: #fff; */
+}
+
+/* CONTACT */
+
+#contact #showcase {
+  text-align: center;
+}
+
+#contact #showcase h1 {
+  font-size: 2.8rem;
+  padding-top: 6rem;
+}
+
+#contact #showcase p {
+  padding: 0 24rem;
+  line-height: 1.9;
+  font-size: 1.2rem;
+}
+#contact #showcase a:not(:last-child) {
+  /* skinny underline */
+  background-repeat: repeat-x;
+  background-image: linear-gradient(to right,currentColor 100%,currentColor 0);
+  background-size: 1px 1px;
+  background-position: 0 100%; 
+  display: inline-block;
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+}
+
+#contact #showcase a:hover {
+  opacity: 0.7;
+}
+
+#contact #showcase i {
+  font-size: 1.2rem;
+}
+
+#contact form {
+  border: 1px #000000 solid;
+  width: 50%;
+  margin: 0 auto;
+  padding: 5rem;
+}
+
+#contact form div {
+  margin-bottom: 2rem;
+}
+
+#contact form input {
+  font-size: 1.5rem;
+}
+
+#contact footer {
+  margin-top: 6rem;
+}
+
+
+@media screen and (max-width: 768px) {
+  /* NAVIGATION */
+
+#navbar {
+  padding: 0;
+}
+
+#navbar ul.nav-items {
+  display: none;
+}
+
+.logo {
+  font-size: 1.2rem;
+  margin-left: 2rem; 
+}
+
+.overlay-wrap {
+  display: block;
+  /* position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1; */
+}
+
+/* we are using the checkbox to make use of its state functionality that we can grab onto with css instead of having to use js */
+
+.overlay-wrap .toggler {
+  position: absolute;
+  top: 0.4rem;
+  right: 1.8rem;
+  /* checkbox will be on top but invisible */
+  z-index: 2;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  /* make the checkbox invisible */
+  opacity: 0;
+}
+
+/* hamburger wrapper */
+.overlay-wrap .hamburger {
+  position: absolute;
+  top: 0;
+  right: 1.5rem;
+  /* right: 1.5rem; */
+  /* postion hamburger under the checkbox */
+  z-index: 1;
+  width: 60px;
+  height: 60px;
+  padding: 1rem;
+  /* background: var(--primary-color); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hamburger Line */
+.overlay-wrap .hamburger > div {
+  /* position this so top and bottom lines can be positioned absolutely with respect */
+  position: relative;
+  /* This is equivalent to flex: 0 0 auto. It sizes the item according to its width/height properties, but makes it fully inflexible. This is similar to flex: initial except it is not allowed to shrink, even in an overflow situation. */
+  flex: none;
+  width: 100%;
+  /* background: #000;
+  height: 2px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* animate hamburger line rotation */
+  transition: all 0.4s ease;
+}
+
+/* Hamburger Lines - Top & Bottom */
+.overlay-wrap .hamburger > div::before,
+.overlay-wrap .hamburger > div::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -10px;
+  width: 100%;
+  height: 1px;
+  background: #000;
+}
+
+/* moves ::after line down to become bottom line */
+.overlay-wrap .hamburger > div::after {
+  top: 10px;
+}
+
+/* Toggler Animation */
+/* keep  */
+/* .overlay-wrap .toggler:checked,
+.overlay-wrap .toggler:checked + .hamburger,
+.overlay-wrap .toggler:checked ~ .menu {
+  margin-right: 1rem;
+} */
+
+
+/* target the div which is the direct child (>) of the div.hamburger which is the adjacent sibling (immediately following) (+) of an input with the .toggler class that has a pseudo-class of checked and is a descendant of the div.overlay-wrap*/
+.overlay-wrap .toggler:checked + .hamburger > div {
+  transform: rotate(135deg);
+  /* show center line for X */
+  background: #000;
+  height: 1px;
+}
+
+/* Turns Lines Into X */
+.overlay-wrap .toggler:checked + .hamburger > div:before,
+.overlay-wrap .toggler:checked + .hamburger > div:after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+/* Rotate On Hover When Checked */
+.overlay-wrap .toggler:checked:hover + .hamburger > div {
+  transform: rotate(225deg);
+}
+
+
+
+/* HIDE MENU */
+
+/* Initially menu is hidden */
+.overlay-wrap .menu {
+  position: fixed;
+  top: 132px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay-wrap .menu > div {
+  position: absolute;
+  background: #fff;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  
+  transition: all 0.4s ease;
+  color: #000;
+}
+
+.overlay-wrap .menu > div > div {
+  text-align: center;
+  max-width: 90vw;
+  max-height: 100vh;
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease; 
+}
+
+/* SHOW MENU WHEN TOGGLER IS CHECKED */
+/* The general sibling selector (~) selects all elements that are siblings of a specified element. */
+.overlay-wrap .toggler:checked ~ .menu {
+  visibility: visible;
+  
+}
+
+.overlay-wrap .toggler:checked ~ .menu > div {
+  transition-duration: var(--menu-speed);
+}
+
+.overlay-wrap .toggler:checked ~ .menu > div > div {
+  opacity: 1;
+  transform: translateY(-150px);
+  
+}
+
+/* MENU STYLES */
+
+.overlay-wrap .menu > div > div > ul > li {
+  list-style: none;
+  color: #000;
+  font-size: 2.5rem;
+  padding: 0.5rem;
+}
+
+.overlay-wrap .menu > div > div > ul > li > a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.4s ease;
+}
+
+.overlay-wrap .menu > div > div > ul > li > a:hover {
+  color: var(--secondary-color);
+}
+
+h1 {
+  font-size: 1.8rem;
+}
+
+h2 {
+  font-size: 1rem;
+}
+
+
+.grid {
+  display: block;
+}
+
+.grid-item {
+  margin: 2rem;
+  width: calc(100% - 4rem);
+}
+
+.work #showcase img {
+  margin-bottom:  .25rem;
+}
+
+/* override AOS animation style */
+[data-aos=fade-up]{transform:translate3d(0,25px,0)}
+
+#contact #showcase h1 {
+  font-size: 2.1rem;
+}
+
+#contact #showcase p {
+  padding: 0 2rem;
+  line-height: 1.9;
+  font-size: 0.8rem;
+}
+
+#contact #showcase a:not(:last-child) {
+  font-size: 0.8rem;
+}
 }
