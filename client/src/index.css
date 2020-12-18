@@ -5,6 +5,8 @@
 *::before,
 *::after {
   box-sizing: inherit;
+  margin: 0;
+	padding: 0;
 }
 
 html {
@@ -170,7 +172,7 @@ h2 {
 
 /* make sure showcase displays on large screen upon resizing after mobile menu has been toggled */
 @media screen and (min-width: 768px) {
-#showcase {
+.showcase {
   display: block !important; 
 } }
 
@@ -202,7 +204,7 @@ h2 {
 
 /* SHOWCASE */
 
-.work #showcase img {
+.Bistrot.showcase img {
   margin-bottom:  4rem;
 }
 
@@ -217,50 +219,50 @@ h2 {
 }
 
 /* PAGINATION */
-.work .pagination {
+.pagination {
   display: flex;
   justify-content: space-between;
 }
 
-#bistrot.work .pagination {
-  justify-content: flex-end;
+.page-nav-right {
+  justify-content: flex-end; 
 }
 
 #eclectica.work .pagination {
   justify-content: flex-start;
 }
 
-.work .pagination h2 {
+.pagination h2 {
   display: inline-block;
 }
 
-.work .pagination .caret-right-icon {
+.pagination .caret-right-icon {
   margin-left: 1rem;
   /* color: #fff; */
 }
 
-.work .pagination .caret-left-icon {
+.pagination .caret-left-icon {
   margin-right: 1rem;
   /* color: #fff; */
 }
 
 /* CONTACT */
 
-#contact #showcase {
+#contact .showcase {
   text-align: center;
 }
 
-#contact #showcase h1 {
+#contact .showcase h1 {
   font-size: 2.8rem;
   padding-top: 6rem;
 }
 
-#contact #showcase p {
+#contact .showcase p {
   padding: 0 24rem;
   line-height: 1.9;
   font-size: 1.2rem;
 }
-#contact #showcase a:not(:last-child) {
+#contact .showcase a:not(:last-child) {
   /* skinny underline */
   background-repeat: repeat-x;
   background-image: linear-gradient(to right,currentColor 100%,currentColor 0);
@@ -271,11 +273,11 @@ h2 {
   font-size: 1.2rem;
 }
 
-#contact #showcase a:hover {
+#contact .showcase a:hover {
   opacity: 0.7;
 }
 
-#contact #showcase i {
+#contact .showcase i {
   font-size: 1.2rem;
 }
 
@@ -512,24 +514,24 @@ h2 {
   width: calc(100% - 4rem);
 }
 
-.work #showcase img {
+.work .showcase img {
   margin-bottom:  .25rem;
 }
 
 /* override AOS animation style */
 [data-aos=fade-up]{transform:translate3d(0,25px,0)}
 
-#contact #showcase h1 {
+#contact .showcase h1 {
   font-size: 2.1rem;
 }
 
-#contact #showcase p {
+#contact .showcase p {
   padding: 0 2rem;
   line-height: 1.9;
   font-size: 0.8rem;
 }
 
-#contact #showcase a:not(:last-child) {
+#contact .showcase a:not(:last-child) {
   font-size: 0.8rem;
 }
 }

@@ -1,14 +1,16 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
 
 const Navbar = () => {
   return (
     <nav id="navbar" className="container">
       <div className="logo">
-        <a href="index.html">Xtophe Xanon</a>
+        <Link to="/">Xtophe Xanon</Link>
       </div>
       <ul className="nav-items">
-          <li><a className="current" href="index.html">Work</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><Link className="current" to="/">Work</Link></li>
+          <li><Link to="/contact">Contact</Link></li>
       </ul>
     
       <div className="overlay-wrap">
