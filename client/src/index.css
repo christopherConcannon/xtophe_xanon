@@ -239,21 +239,21 @@ h2 {
 
 /* CONTACT */
 
-#contact .showcase {
+.Contact.showcase {
   text-align: center;
 }
 
-#contact .showcase h1 {
+.Contact.showcase h1 {
   font-size: 2.8rem;
   padding-top: 6rem;
 }
 
-#contact .showcase p {
+.Contact.showcase p {
   padding: 0 24rem;
   line-height: 1.9;
   font-size: 1.2rem;
 }
-#contact .showcase a:not(:last-child) {
+.Contact.showcase a:not(:last-child) {
   /* skinny underline */
   background-repeat: repeat-x;
   background-image: linear-gradient(to right,currentColor 100%,currentColor 0);
@@ -264,30 +264,30 @@ h2 {
   font-size: 1.2rem;
 }
 
-#contact .showcase a:hover {
+.Contact.showcase a:hover {
   opacity: 0.7;
 }
 
-#contact .showcase i {
+.Contact.showcase i {
   font-size: 1.2rem;
 }
 
-#contact form {
+.Contact form {
   border: 1px #000000 solid;
   width: 50%;
   margin: 0 auto;
   padding: 5rem;
 }
 
-#contact form div {
+.Contact form div {
   margin-bottom: 2rem;
 }
 
-#contact form input {
+.Contact form input {
   font-size: 1.5rem;
 }
 
-#contact footer {
+.Contact footer {
   margin-top: 6rem;
 }
 
@@ -512,17 +512,17 @@ h2 {
 /* override AOS animation style */
 [data-aos=fade-up]{transform:translate3d(0,25px,0)}
 
-#contact .showcase h1 {
+.Contact .showcase h1 {
   font-size: 2.1rem;
 }
 
-#contact .showcase p {
+.Contact .showcase p {
   padding: 0 2rem;
   line-height: 1.9;
   font-size: 0.8rem;
 }
 
-#contact .showcase a:not(:last-child) {
+.Contact .showcase a:not(:last-child) {
   font-size: 0.8rem;
 }
 }
