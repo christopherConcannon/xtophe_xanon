@@ -12,6 +12,7 @@ import Eclectica from './pages/Eclectica'
 import Contact from './pages/Contact'
 
 import 'aos/dist/aos.css'; 
+
 AOS.init();
 
 function App() {

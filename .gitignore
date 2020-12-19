@@ -27,3 +27,5 @@ static_proto/
 
 package-lock.json
 .env
+
+_favicon.ico
