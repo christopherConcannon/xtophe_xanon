@@ -11,7 +11,7 @@ const Footer = () => {
 					<br />
 					Made by{' '}
 					<a
-						href='https://www.unicornioworldheadquarters.com'
+						href='http://www.christopherconcannon.com'
 						target='_blank'
 						rel='noreferrer'
 					>

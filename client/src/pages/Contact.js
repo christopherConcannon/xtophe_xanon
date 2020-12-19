@@ -4,9 +4,9 @@ import Message from '../components/Message'
 
 const Contact = () => {
 	const [ formState, setFormState ] = useState({
-		name: '',
-		email: '',
-		message: 'Please enter your message here...'
+		name    : '',
+		email   : '',
+		message : ''
 	})
 	const [ formSubmitMessage, setFormSubmitMessage ] = useState(null)
 
@@ -83,12 +83,17 @@ const Contact = () => {
 							name='message'
 							rows='5'
 							required
-							// defaultValue='Please send your message here...'
+              // defaultValue='Please send your message here...'
+              placeholder='Please enter your message here...'
 							value={formState.message}
 							onChange={handleChange}
 						/>
 					</div>
-					<button type='submit'>allez</button>
+					<div className='btn-container'>
+						<button type='submit' className='btn'>
+							allez
+						</button>
+					</div>
 					{formSubmitMessage === 'success' ? (
 						<Message>Thank you for reaching out, I will get back to you soon</Message>
 					) : formSubmitMessage === 'fail' ? (

@@ -1,16 +1,22 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 
 const Navbar = () => {
+  const activeStyle = {
+    backgroundRepeat: 'repeat-x',
+    backgroundImage: 'linear-gradient(to right, currentColor 100%, currentColor 0)',
+    backgroundSize: '1px 1px',
+    backgroundPosition: '0 calc(100% - 0.8em)' 
+	};
   return (
     <nav id="navbar" className="container">
       <div className="logo">
         <Link to="/">Xtophe Xanon</Link>
       </div>
       <ul className="nav-items">
-          <li><Link className="current" to="/">Imagen</Link></li>
-          <li><Link to="/contact">Contact</Link></li>
+          <li><NavLink exact to="/" activeStyle={activeStyle}>Imagen</NavLink></li>
+          <li><NavLink to="/contact" activeStyle={activeStyle}>Contact</NavLink></li>
       </ul>
     
       <div className="overlay-wrap">

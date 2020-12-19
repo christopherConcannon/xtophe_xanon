@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+import AOS from 'aos';
 
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -9,6 +10,9 @@ import Quixote from './pages/Quixote'
 import Myco from './pages/Myco'
 import Eclectica from './pages/Eclectica'
 import Contact from './pages/Contact'
+
+import 'aos/dist/aos.css'; 
+AOS.init();
 
 function App() {
 	return (
