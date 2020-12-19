@@ -134,7 +134,7 @@ textarea, input, button, select {
 .rsp-image {
   display: block;
   width: 100%;
-  height: auto;
+  height: auto; 
 }
 
 .grid-item-overlay {
