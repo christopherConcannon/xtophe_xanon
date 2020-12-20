@@ -1,5 +1,8 @@
 import React, { useState, useRef } from 'react'
 import axios from 'axios'
+import useForm from '../hooks/useForm'
+import validate from '../utils/LoginFormValidationRules'
+
 import Message from '../components/Message'
 
 const Contact = () => {
@@ -8,6 +11,8 @@ const Contact = () => {
 		email   : '',
 		message : ''
 	})
+	const { handleChange, handleSubmit } = useForm(sendForm, validate)
+
 	const [ formSubmitMessage, setFormSubmitMessage ] = useState(null)
 
 	// reference to form
@@ -17,25 +22,41 @@ const Contact = () => {
 		Array.from(formRef.current.elements).forEach((input) => (input.value = ''))
 	}
 
-	function handleSubmit(e) {
-		e.preventDefault()
-		const { name, email, message } = formState
-		if (name !== '' && email !== '' && message !== '') {
-			axios({
-				method : 'POST',
-				url    : '/send',
-				data   : formState
-			}).then((response) => {
-				if (response.data.status === 'success') {
-					setFormSubmitMessage('success')
-					resetForm()
-				} else if (response.data.status === 'fail') {
-					setFormSubmitMessage('fail')
-					resetForm()
-				}
-			})
-		}
+	function sendForm() {
+		axios({
+			method : 'POST',
+			url    : '/send',
+			data   : formState
+		}).then((response) => {
+			if (response.data.status === 'success') {
+				setFormSubmitMessage('success')
+				resetForm()
+			} else if (response.data.status === 'fail') {
+				setFormSubmitMessage('fail')
+				resetForm()
+			}
+		})
 	}
+
+	// function handleSubmit(e) {
+	// 	e.preventDefault()
+	// 	const { name, email, message } = formState
+	// 	if (name !== '' && email !== '' && message !== '') {
+	// 		axios({
+	// 			method : 'POST',
+	// 			url    : '/send',
+	// 			data   : formState
+	// 		}).then((response) => {
+	// 			if (response.data.status === 'success') {
+	// 				setFormSubmitMessage('success')
+	// 				resetForm()
+	// 			} else if (response.data.status === 'fail') {
+	// 				setFormSubmitMessage('fail')
+	// 				resetForm()
+	// 			}
+	// 		})
+	// 	}
+	// }
 
 	// controlled inputs
 	const handleChange = (event) => {
@@ -56,7 +77,7 @@ const Contact = () => {
 					'what is all this thusness?'. Have you ever been? Can I ride? The stair spangled
 					daemons are real. They are standing still. Still.{' '}
 				</p>
-				<form onSubmit={handleSubmit} ref={formRef}>
+				<form onSubmit={handleSubmit} ref={formRef} noValidate>
 					<div>
 						<label htmlFor='name'>Name: </label>
 						<input
@@ -64,7 +85,6 @@ const Contact = () => {
 							name='name'
 							value={formState.name}
 							onChange={handleChange}
-							required
 						/>
 					</div>
 					<div>
@@ -74,7 +94,6 @@ const Contact = () => {
 							name='email'
 							value={formState.email}
 							onChange={handleChange}
-							required
 						/>
 					</div>
 					<div>
@@ -82,9 +101,7 @@ const Contact = () => {
 						<textarea
 							name='message'
 							rows='5'
-							required
-              // defaultValue='Please send your message here...'
-              placeholder='Please enter your message here...'
+							placeholder='Please enter your message here...'
 							value={formState.message}
 							onChange={handleChange}
 						/>
