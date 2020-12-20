@@ -26,16 +26,16 @@ Visit site [here](https://xtophe-xanon.herokuapp.com/)
   * [Questions](#questions)
   
 ## Installation
-Clone project to a directory on your local machine and cd into directory.  Run <$ npm install> to install dependencies.  See package.json for other available scripts.
+Clone project to a directory on your local machine and cd into xtophe_xanon directory.  Run <$ npm install> to install dependencies.  See package.json for other available scripts.
 
 ## Usage
-Open index.html file in browser of your choice and navigate through the site to view images.  
+Run <$ npm start> to launch project on local development server.  Navigate through site to view the artist's works.  Visit the contact page to send an inquiry to the artist.
 
 ## License 
 This project is covered under the MIT license 
 
 ## Technologies 
-HTML5, CSS3, JavaScript, AOS
+Node.js, Express.js, HTML5, CSS3, JavaScript, AOS, Nodemailer
 
 ## Contributing
 To see the guidelines adopted for contributing to this project, please view the [Contributor Covenant](https://www.contributor-covenant.org/version/2/0/code_of_conduct/code_of_conduct.txt)
