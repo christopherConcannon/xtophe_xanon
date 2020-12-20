@@ -1,5 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { bistrotImages as images } from '../data'
+
+import Work from '../components/Work'
+import Pagination from '../components/Pagination'
 
 const Bistrot = () => {
 	return (
@@ -7,20 +11,11 @@ const Bistrot = () => {
 			<section className='Bistrot showcase work'>
 				<div id='portfolio-imgs' className='container'>
 					<h1>bistrot</h1>
-					<div data-aos='fade-up'>
-						<img className='rsp-image' src='images/liberte-2x3-twistd.jpg' alt='' />
-					</div>
-					<div data-aos='fade-up'>
-						<img className='rsp-image' src='images/metro-3x2-stained-glass.jpg' alt='' />
-					</div>
-					<div data-aos='fade-up'>
-						<img className='rsp-image' src='images/swans-2x3-posterize.jpg' alt='' />
-					</div>
+					{images.map((img) => <Work key={img.imgSrc} {...img} />)}
 				</div>
 			</section>
-			<section className='pagination container page-nav-right'>
-				{/* <div className="page-nav-right"> */}
-				{/* <div className=""> */}
+			<Pagination direx='page-nav-right' rPage={{ to: 'quixote', title: 'Quixote' }} />
+			{/* <section className='pagination container page-nav-right'>
 				<Link to='/quixote'>
 					<h2>Quixote</h2>
 					<svg className='caret-right-icon' width='18' height='32' viewBox='0 -1 9 16'>
@@ -32,8 +27,7 @@ const Bistrot = () => {
 						/>
 					</svg>
 				</Link>
-				{/* </div> */}
-			</section>
+			</section> */}
 		</React.Fragment>
 	)
 }
