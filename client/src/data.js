@@ -73,7 +73,7 @@ export const mycoImages = [
 		alt    : 'myco two'
 	},
 	{
-		imgSrc : 'images/myco-3-2x3-extrude.jpg',
+		imgSrc : 'myco-3-2x3-extrude.jpg',
 		alt    : 'myco three'
 	}
 ]
