@@ -6,11 +6,6 @@ import validate from '../utils/FormValidation'
 import Message from '../components/Message'
 
 const Contact = () => {
-	// const [ formState, setFormState ] = useState({
-	// 	name    : '',
-	// 	email   : '',
-	// 	message : ''
-	// })
 	const { values, errors, handleChange, handleSubmit } = useForm(sendForm, validate)
 
 	const [ formSubmitMessage, setFormSubmitMessage ] = useState(null)
@@ -37,35 +32,6 @@ const Contact = () => {
 			}
 		})
 	}
-
-	// function handleSubmit(e) {
-	// 	e.preventDefault()
-	// 	const { name, email, message } = formState
-	// 	if (name !== '' && email !== '' && message !== '') {
-	// 		axios({
-	// 			method : 'POST',
-	// 			url    : '/send',
-	// 			data   : formState
-	// 		}).then((response) => {
-	// 			if (response.data.status === 'success') {
-	// 				setFormSubmitMessage('success')
-	// 				resetForm()
-	// 			} else if (response.data.status === 'fail') {
-	// 				setFormSubmitMessage('fail')
-	// 				resetForm()
-	// 			}
-	// 		})
-	// 	}
-	// }
-
-	// controlled inputs
-	// const handleChange = (event) => {
-	// 	const { name, value } = event.target
-	// 	setFormState({
-	// 		...formState,
-	// 		[name] : value
-	// 	})
-	// }
 
 	return (
 		<React.Fragment>
