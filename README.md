@@ -14,7 +14,7 @@ A portfolio website for the photographer and imagist Xtophe Xanon in the brutali
 ##### Contact Page View
 ![Contact Page View Screenshot](./assets/images/screenshot4.png)
 
-Visit site [here](https://christopherconcannon.github.io/xtophe_xanon/)
+Visit site [here](https://xtophe-xanon.herokuapp.com/)
 
 ## Table of Contents
   * [Installation](#installation)
