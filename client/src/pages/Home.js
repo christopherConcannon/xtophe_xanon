@@ -7,7 +7,7 @@ const Home = () => {
 	return (
 		<section>
 			<div className='container'>
-				<div className='grid'>
+				<div className='grid' data-aos='fade-up'>
 					{homeGridItems.map((item) => <HomeGridItem key={item.title} {...item} />)}
 				</div>
 			</div>

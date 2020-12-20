@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 const useForm = (callback, validate) => {
 
-  // const [values, setValues] = useState({});
+  const [values, setValues] = useState({});
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -18,17 +18,19 @@ const useForm = (callback, validate) => {
     setIsSubmitting(true);
   };
 
-  // const handleChange = (event) => {
-  //   event.persist();
-  //   setValues(values => ({ ...values, [event.target.name]: event.target.value }));
-  // };
+  const handleChange = (event) => {
+    event.persist();
+    setValues(values => ({ ...values, [event.target.name]: event.target.value }));
+  };
 
   return {
-    // handleChange,
+    handleChange,
     handleSubmit,
-    // values,
+    values,
     errors,
   }
 };
 
 export default useForm;
+
+// https://upmostly.com/tutorials/form-validation-using-custom-react-hooks

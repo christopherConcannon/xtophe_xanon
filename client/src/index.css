@@ -251,12 +251,14 @@ textarea, input, button, select {
   padding-top: 4rem;
 }
 
-.Contact.showcase p {
+/* .Contact.showcase p {
   text-align: center;
   margin-bottom: 2rem;
-}
+} */
 
 .Contact-bio {
+  text-align: center;
+  margin-bottom: 2rem;
   padding: 0 24rem;
   line-height: 1.9;
   font-size: 1.2rem;
@@ -300,6 +302,7 @@ textarea, input, button, select {
   padding: .5rem;
   display: block;
   width: 100%;
+  margin-bottom: .5rem;
 }
 
 .btn-container {
@@ -311,6 +314,10 @@ textarea, input, button, select {
 
 .Contact footer {
   margin-top: 6rem;
+}
+
+.error {
+  color: rgb(255, 160, 219);
 }
 
 
