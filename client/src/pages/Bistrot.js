@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { bistrotImages as images } from '../data'
 
 import Work from '../components/Work'

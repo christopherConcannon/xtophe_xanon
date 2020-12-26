@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 
+import Dropdown from './Dropdown'
 
 const Navbar = () => {
   const activeStyle = {
@@ -15,7 +16,8 @@ const Navbar = () => {
         <Link to="/">Xtophe Xanon</Link>
       </div>
       <ul className="nav-items">
-          <li><NavLink exact to="/" activeStyle={activeStyle}>Imagen</NavLink></li>
+          {/* <li><NavLink exact to="/" activeStyle={activeStyle}>Imagen</NavLink></li> */}
+          <Dropdown />
           <li><NavLink to="/contact" activeStyle={activeStyle}>Contact</NavLink></li>
       </ul>
     
