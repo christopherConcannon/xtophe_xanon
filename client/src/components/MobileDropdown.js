@@ -1,29 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const MobileDropdown = ({ handleMobileClick }) => {
+const MobileDropdown = ({ navItems, handleMobileClick }) => {
 	return (
 		<ul className='mobile-dropdown-menu'>
-			<li>
-				<Link to='/bistrot' onClick={() => handleMobileClick()}>
-					bistrot
-				</Link>
-			</li>
-			<li>
-				<Link to='/quixote' onClick={() => handleMobileClick()}>
-					quixote
-				</Link>
-			</li>
-			<li>
-				<Link to='/myco' onClick={() => handleMobileClick()}>
-					myco
-				</Link>
-			</li>
-			<li>
-				<Link to='/eclectica' onClick={() => handleMobileClick()}>
-					eclectica
-				</Link>
-			</li>
+      {navItems.map((item, idx) => (
+        <li>
+          <Link to={item.link} onClick={() => handleMobileClick()}>
+            {item.title}
+          </Link>
+        </li>
+      ))}
 		</ul>
 	)
 }

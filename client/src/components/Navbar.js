@@ -4,6 +4,8 @@ import { Link, NavLink } from 'react-router-dom'
 import Dropdown from './Dropdown'
 import MobileDropdown from './MobileDropdown'
 
+import { homeGridItems as navItems } from '../data'
+
 const Navbar = () => {
 	const activeStyle = {
 		backgroundRepeat   : 'repeat-x',
@@ -47,14 +49,13 @@ const Navbar = () => {
 				<Link to='/'>Xtophe Xanon</Link>
 			</div>
 			<ul className='nav-items'>
-				{/* <li><NavLink exact to="/" activeStyle={activeStyle}>Imagen</NavLink></li> */}
 				<li
 					className='nav-dropdown-container'
 					onMouseEnter={() => setShowDropdown(true)}
 					onMouseLeave={() => setShowDropdown(false)}
 				>
 					<button>Imagen</button>
-					{showDropdown && <Dropdown />}
+					{showDropdown && <Dropdown navItems={navItems} />}
 				</li>
 
 				<li>
@@ -71,7 +72,6 @@ const Navbar = () => {
 					onClick={() => setChecked(!checked)}
 					ref={checkboxRef}
 				/>
-				{/*inner empty div will become hamburger line */}
 				<div className='hamburger'>
 					<div />
 				</div>
@@ -85,13 +85,8 @@ const Navbar = () => {
 									onMouseLeave={() => setShowMobileDropdown(false)}
 								>
 									<button>Imagen</button>
-									{showMobileDropdown && <MobileDropdown handleMobileClick={handleMobileClick}/>}
+									{showMobileDropdown && <MobileDropdown navItems={navItems} handleMobileClick={handleMobileClick}/>}
 								</li>
-								{/* <li>
-									<NavLink exact to='/' onClick={() => handleMobileClick()}>
-										Imagen
-									</NavLink>
-								</li> */}
 								<li>
 									<NavLink to='/contact' onClick={() => handleMobileClick()}>
 										Contact
