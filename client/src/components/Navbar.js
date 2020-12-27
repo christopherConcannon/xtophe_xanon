@@ -1,10 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 
 import Dropdown from './Dropdown'
-
-import React, { useState, useEffect, useRef } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import MobileDropdown from './MobileDropdown'
 
 const Navbar = () => {
 	const activeStyle = {
@@ -15,22 +13,29 @@ const Navbar = () => {
 	}
 
 	const [ showDropdown, setShowDropdown ] = useState(false)
+	const [ showMobileDropdown, setShowMobileDropdown ] = useState(false)
 	const [ checked, setChecked ] = useState(false)
 	const checkboxRef = useRef()
 
-	useEffect(() => {
-		if (checkboxRef) {
-			checkboxRef.current.checked = checked
-    }
-  }, [checked])
-  
-  useEffect(() => {  
-    if (checkboxRef.current.checked) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = 'scroll'
-    }
-  }, [checked])
+	useEffect(
+		() => {
+			if (checkboxRef) {
+				checkboxRef.current.checked = checked
+			}
+		},
+		[ checked ]
+	)
+
+	useEffect(
+		() => {
+			if (checkboxRef.current.checked) {
+				document.body.style.overflow = 'hidden'
+			} else {
+				document.body.style.overflow = 'scroll'
+			}
+		},
+		[ checked ]
+	)
 
 	function handleMobileClick() {
 		setChecked(false)
@@ -74,27 +79,20 @@ const Navbar = () => {
 					<div>
 						<div>
 							<ul>
-								{/* <li>
-									<a href='index.html'>Work</a>
-								</li> */}
-								{/* <li
+								<li
 									className='nav-dropdown-container'
-									onMouseEnter={() => setShowDropdown(true)}
-									onMouseLeave={() => setShowDropdown(false)}
+									onMouseEnter={() => setShowMobileDropdown(true)}
+									onMouseLeave={() => setShowMobileDropdown(false)}
 								>
 									<button>Imagen</button>
-									{showDropdown && <Dropdown />}
-								</li> */}
-								<li>
-									<NavLink to='/contact' activeStyle={activeStyle}>
-								<li>
-									{/* <NavLink exact to='/' onClick={() => setChecked(false)}> */}
+									{showMobileDropdown && <MobileDropdown handleMobileClick={handleMobileClick}/>}
+								</li>
+								{/* <li>
 									<NavLink exact to='/' onClick={() => handleMobileClick()}>
 										Imagen
 									</NavLink>
-								</li>
+								</li> */}
 								<li>
-									{/* <NavLink to='/contact' onClick={() => setChecked(false)}> */}
 									<NavLink to='/contact' onClick={() => handleMobileClick()}>
 										Contact
 									</NavLink>

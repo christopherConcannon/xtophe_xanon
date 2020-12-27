@@ -111,6 +111,7 @@ textarea, input, button, select {
 
 #navbar ul li a:hover {
   opacity: 0.7;
+  color: rgb(255, 160, 219);
 }
 
 
@@ -146,14 +147,25 @@ textarea, input, button, select {
   margin-left: 0 !important;
 }
 
-.dropdown-menu li a:hover {
+.dropdown-menu li:hover a{
   color: rgb(255, 160, 219) !important;
 }
 
-/* .dropdown-menu-hide {
+.dropdown-menu.clicked {
   display: none;
-} */
+}
 
+.mobile-dropdown-menu {
+  font-size: 1.5rem;
+  text-align: right;
+  line-height: 1.5;
+  transition: all .3s ease-in;
+}
+
+.mobile-dropdown-menu li:hover a {
+  color: rgb(255, 160, 219) !important;
+  
+}
 
 /* Hide .overlay-wrap */
 .overlay-wrap {
