@@ -259,7 +259,7 @@ textarea, input, button, select {
 .Contact-bio {
   text-align: center;
   margin-bottom: 2rem;
-  padding: 0 24rem;
+  padding: 0 8rem;
   line-height: 1.9;
   font-size: 1.2rem;
 }
@@ -284,9 +284,9 @@ textarea, input, button, select {
 
 .Contact form {
   border: 1px #000000 solid;
-  width: 50%;
+  width: 70%;
   margin: 0 auto;
-  padding: 5rem;
+  padding: 2rem;
 }
 
 .Contact form div {
@@ -318,6 +318,18 @@ textarea, input, button, select {
 
 .error {
   color: rgb(255, 160, 219);
+}
+
+@media screen and (max-width: 960px) {
+  .Contact.showcase h1 {
+    font-size: 2rem;
+    padding: 2rem;
+  }
+
+  .Contact-bio {
+    padding: 0 6rem;
+    font-size: .8rem;
+  }
 }
 
 
@@ -541,7 +553,7 @@ h2 {
 /* override AOS animation style */
 [data-aos=fade-up]{transform:translate3d(0,25px,0)}
 
-.Contact .showcase h1 {
+/* .Contact.showcase h1 {
   font-size: 2.1rem;
 }
 
@@ -549,6 +561,16 @@ h2 {
   padding: 0 2rem;
   line-height: 1.9;
   font-size: 0.8rem;
+} */
+
+.Contact.showcase h1 {
+  font-size: 1.6rem;
+  padding: 1rem;
+}
+
+.Contact-bio {
+  padding: 0 3rem;
+  font-size: .8rem;
 }
 
 .Contact .showcase a:not(:last-child) {
