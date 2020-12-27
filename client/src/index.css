@@ -126,27 +126,33 @@ textarea, input, button, select {
   cursor: pointer;
 }
 
-.nav-dropdown {
+.nav-dropdown-container {
   position: relative;
 }
 
-.nav-dropdown ul {
+.dropdown-menu {
   position: absolute;
+  
   top: 20px;
   line-height: 1.7;
   background: #ccc;
-  padding: 1rem;
+  /* padding: 1rem; */
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
-.nav-dropdown ul li {
-  border-bottom: 1px solid #000;
+.dropdown-menu li {
+  /* border-bottom: 1px solid #000; */
+  text-align: start;
   margin-left: 0 !important;
 }
 
-.nav-dropdown ul li a:hover {
+.dropdown-menu li a:hover {
   color: rgb(255, 160, 219) !important;
 }
+
+/* .dropdown-menu-hide {
+  display: none;
+} */
 
 
 /* Hide .overlay-wrap */
