@@ -3,6 +3,9 @@ import { Link, NavLink } from 'react-router-dom'
 
 import Dropdown from './Dropdown'
 
+import React, { useState, useEffect, useRef } from 'react'
+import { Link, NavLink } from 'react-router-dom'
+
 const Navbar = () => {
 	const activeStyle = {
 		backgroundRepeat   : 'repeat-x',
@@ -12,6 +15,26 @@ const Navbar = () => {
 	}
 
 	const [ showDropdown, setShowDropdown ] = useState(false)
+	const [ checked, setChecked ] = useState(false)
+	const checkboxRef = useRef()
+
+	useEffect(() => {
+		if (checkboxRef) {
+			checkboxRef.current.checked = checked
+    }
+  }, [checked])
+  
+  useEffect(() => {  
+    if (checkboxRef.current.checked) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'scroll'
+    }
+  }, [checked])
+
+	function handleMobileClick() {
+		setChecked(false)
+	}
 
 	return (
 		<nav id='navbar' className='container'>
@@ -37,7 +60,12 @@ const Navbar = () => {
 			</ul>
 
 			<div className='overlay-wrap'>
-				<input type='checkbox' className='toggler' />
+				<input
+					type='checkbox'
+					className='toggler'
+					onClick={() => setChecked(!checked)}
+					ref={checkboxRef}
+				/>
 				{/*inner empty div will become hamburger line */}
 				<div className='hamburger'>
 					<div />
@@ -49,16 +77,25 @@ const Navbar = () => {
 								{/* <li>
 									<a href='index.html'>Work</a>
 								</li> */}
-								<li
+								{/* <li
 									className='nav-dropdown-container'
 									onMouseEnter={() => setShowDropdown(true)}
 									onMouseLeave={() => setShowDropdown(false)}
 								>
 									<button>Imagen</button>
 									{showDropdown && <Dropdown />}
-								</li>
+								</li> */}
 								<li>
 									<NavLink to='/contact' activeStyle={activeStyle}>
+								<li>
+									{/* <NavLink exact to='/' onClick={() => setChecked(false)}> */}
+									<NavLink exact to='/' onClick={() => handleMobileClick()}>
+										Imagen
+									</NavLink>
+								</li>
+								<li>
+									{/* <NavLink to='/contact' onClick={() => setChecked(false)}> */}
+									<NavLink to='/contact' onClick={() => handleMobileClick()}>
 										Contact
 									</NavLink>
 								</li>
