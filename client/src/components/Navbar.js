@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 
+import Dropdown from './Dropdown'
+import MobileDropdown from './MobileDropdown'
+
 const Navbar = () => {
 	const activeStyle = {
 		backgroundRepeat   : 'repeat-x',
@@ -9,22 +12,30 @@ const Navbar = () => {
 		backgroundPosition : '0 calc(100% - 0.8em)'
 	}
 
+	const [ showDropdown, setShowDropdown ] = useState(false)
+	const [ showMobileDropdown, setShowMobileDropdown ] = useState(false)
 	const [ checked, setChecked ] = useState(false)
 	const checkboxRef = useRef()
 
-	useEffect(() => {
-		if (checkboxRef) {
-			checkboxRef.current.checked = checked
-    }
-  }, [checked])
-  
-  useEffect(() => {  
-    if (checkboxRef.current.checked) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = 'scroll'
-    }
-  }, [checked])
+	useEffect(
+		() => {
+			if (checkboxRef) {
+				checkboxRef.current.checked = checked
+			}
+		},
+		[ checked ]
+	)
+
+	useEffect(
+		() => {
+			if (checkboxRef.current.checked) {
+				document.body.style.overflow = 'hidden'
+			} else {
+				document.body.style.overflow = 'scroll'
+			}
+		},
+		[ checked ]
+	)
 
 	function handleMobileClick() {
 		setChecked(false)
@@ -36,11 +47,16 @@ const Navbar = () => {
 				<Link to='/'>Xtophe Xanon</Link>
 			</div>
 			<ul className='nav-items'>
-				<li>
-					<NavLink exact to='/' activeStyle={activeStyle}>
-						Imagen
-					</NavLink>
+				{/* <li><NavLink exact to="/" activeStyle={activeStyle}>Imagen</NavLink></li> */}
+				<li
+					className='nav-dropdown-container'
+					onMouseEnter={() => setShowDropdown(true)}
+					onMouseLeave={() => setShowDropdown(false)}
+				>
+					<button>Imagen</button>
+					{showDropdown && <Dropdown />}
 				</li>
+
 				<li>
 					<NavLink to='/contact' activeStyle={activeStyle}>
 						Contact
@@ -63,14 +79,20 @@ const Navbar = () => {
 					<div>
 						<div>
 							<ul>
-								<li>
-									{/* <NavLink exact to='/' onClick={() => setChecked(false)}> */}
+								<li
+									className='nav-dropdown-container'
+									onMouseEnter={() => setShowMobileDropdown(true)}
+									onMouseLeave={() => setShowMobileDropdown(false)}
+								>
+									<button>Imagen</button>
+									{showMobileDropdown && <MobileDropdown handleMobileClick={handleMobileClick}/>}
+								</li>
+								{/* <li>
 									<NavLink exact to='/' onClick={() => handleMobileClick()}>
 										Imagen
 									</NavLink>
-								</li>
+								</li> */}
 								<li>
-									{/* <NavLink to='/contact' onClick={() => setChecked(false)}> */}
 									<NavLink to='/contact' onClick={() => handleMobileClick()}>
 										Contact
 									</NavLink>
