@@ -29,3 +29,15 @@ package-lock.json
 .env
 
 _favicon.ico
+
+README_NOTES.txt
+
+node_modules
+
+README.txt
+
+img-old
+
+client/.eslintcache
+
+client/debug.log
