@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 import useForm from '../hooks/useForm'
 import validate from '../utils/FormValidation'
@@ -6,16 +6,9 @@ import validate from '../utils/FormValidation'
 import Message from '../components/Message'
 
 const Contact = () => {
-	const { values, errors, handleChange, handleSubmit } = useForm(sendForm, validate)
+	const { values, errors, handleChange, handleSubmit, resetForm } = useForm(sendForm, validate)
 
 	const [ formSubmitMessage, setFormSubmitMessage ] = useState(null)
-
-	// reference to form
-	const formRef = useRef(null)
-
-	function resetForm() {
-		Array.from(formRef.current.elements).forEach((input) => (input.value = ''))
-	}
 
 	function sendForm() {
 		axios({
@@ -24,11 +17,11 @@ const Contact = () => {
 			data   : values
 		}).then((response) => {
 			if (response.data.status === 'success') {
+				resetForm()
 				setFormSubmitMessage('success')
-				resetForm()
 			} else if (response.data.status === 'fail') {
-				setFormSubmitMessage('fail')
 				resetForm()
+				setFormSubmitMessage('fail')
 			}
 		})
 	}
@@ -43,7 +36,7 @@ const Contact = () => {
 					'what is all this thusness?'. Have you ever been? Can I ride? The stair spangled
 					daemons are real. They are standing still. Still.{' '}
 				</p>
-				<form onSubmit={handleSubmit} ref={formRef} noValidate>
+				<form onSubmit={handleSubmit} noValidate>
 					<div>
 						<label htmlFor='name'>Name: </label>
 						<input
